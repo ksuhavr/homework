@@ -1,15 +1,26 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //факториал числа
+        long factorial = Task.FactorialCalculator.calculateFactorial(4);
+        System.out.println("Факториал 4 = " + factorial);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        //площадь треугольника
+        double area = Task.TriangleArea.getArea(15,5);
+        System.out.println("\nПлощадь треугольника равна " + area);
+
+        //арифметические действия с двумя целыми числами
+        int resultAddition = Task.ArithmeticOperations.addition(5, 6);
+        System.out.println("\nСумма чисел " + resultAddition);
+        int resultSubtraction = Task.ArithmeticOperations.subtraction(5, 6);
+        System.out.println("Разность чисел " + resultSubtraction);
+        double resultDivision = Task.ArithmeticOperations.division(5, 6);
+        System.out.println("Частное чисел " + resultDivision);
+        int resultMultiplication = Task.ArithmeticOperations.multiplication(5, 6);
+        System.out.println("Произведение чисел " + resultMultiplication);
+
+        //сравнение двух целых чисел
+        System.out.println();
+        String compare = Task.ComparingNumbers.compareNumbers(17,8);
+        System.out.println(compare);
     }
 }
