@@ -23,7 +23,7 @@ public class ComparingNumbersTest {
     }
 
     @Test(dataProvider = "validInput")
-    void testComparingNumbersWithValidInput(int a, int b, String expected) {
+    public void testComparingNumbersWithValidInput(int a, int b, String expected) {
         assertEquals(Task.ComparingNumbers.compareNumbers(a, b), expected,
                 String.format("Ошибка при сравнении %d и %d", a, b));
     }
