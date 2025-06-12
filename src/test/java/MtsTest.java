@@ -6,7 +6,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MtsMainPageTest extends TestBase {
+public class MtsTest extends TestBase {
 
     @Test
     public void testOnlinePaymentBlockTitle() {
