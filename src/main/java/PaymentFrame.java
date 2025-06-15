@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -61,43 +62,53 @@ public class PaymentFrame extends BasePage {
         super(driver);
     }
 
+    @Step("Переключиться во фрейм оплаты")
     public void switchToPaymentFrame() {
         new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector("iframe.bepaid-iframe")));
     }
 
+    @Step("Переключиться в основной контент")
     public void switchToDefaultContent() {
         driver.switchTo().defaultContent();
     }
 
+    @Step("Проверить отображения формы")
     public boolean isFormDisplayed() {
         return frameForm.isDisplayed();
     }
 
+    @Step("Получить отображаемую сумму")
     public String getPayCost() {
         return payCost.getText();
     }
 
+    @Step("Получить текст с номером")
     public String getPayText() {
         return payText.getText();
     }
 
+    @Step("Получить текст над полем 'Номер карты'")
     public String getCardNumberLabel() {
         return cardNumberText.getText();
     }
 
+    @Step("Получить текст над полем 'Срок действия'")
     public String getCardValidityLabel() {
         return cardValidityPeriodText.getText();
     }
 
+    @Step("Получить текст над полем 'CVC'")
     public String getCvcLabel() {
         return cvcText.getText();
     }
 
+    @Step("Получить текст над полем 'Имя и фамилия на карте'")
     public String getCardNameLabel() {
         return nameText.getText();
     }
 
+    @Step("Проверить наличия иконок платежных систем")
     public boolean isPaymentIconsDisplayed() {
         return visaIcon.isDisplayed() && mastercardIcon.isDisplayed() && belkartIcon.isDisplayed();
     }

@@ -1,7 +1,7 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PaymentBlock extends BasePage {
     @FindBy(css = "div.pay__wrapper > h2")
@@ -23,22 +23,27 @@ public class PaymentBlock extends BasePage {
         super(driver);
     }
 
+    @Step("Получить заголовок блока оплаты")
     public String getTitle() {
         return titleElement.getText().replace("\n", " ").trim();
     }
 
+    @Step("Проверить отображения логотипа Visa")
     public boolean isVisaLogoDisplayed() {
         return visaLogo.isDisplayed();
     }
 
+    @Step("Проверить отображения логотипа Mastercard")
     public boolean isMastercardLogoDisplayed() {
         return mastercardLogo.isDisplayed();
     }
 
+    @Step("Проверить отображения логотипа Белкарт")
     public boolean isBelkartLogoDisplayed() {
         return belkartLogo.isDisplayed();
     }
 
+    @Step("Нажать на ссылку 'Подробнее о сервисе'")
     public void clickLinkLearnMore() {
         linkLearnMore.click();
     }

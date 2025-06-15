@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ public class MainPage extends BasePage {
         this.payFormBlock = new PayFormBlock(driver);
     }
 
+    @Step("Принять Cookies")
     public void acceptCookies() {
         try {
             cookieAgreeButton.click();
@@ -22,10 +24,12 @@ public class MainPage extends BasePage {
         }
     }
 
+    @Step("Получить блок оплаты")
     public PaymentBlock getPaymentBlock() {
         return paymentBlock;
     }
 
+    @Step("Получить блок формы оплаты")
     public PayFormBlock getPayFormBlock() {
         return payFormBlock;
     }

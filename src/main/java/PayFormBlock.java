@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -66,6 +67,7 @@ public class PayFormBlock extends BasePage {
         super(driver);
     }
 
+    @Step("Выбрать тип услуги: {serviceType}")
     public PayFormBlock selectServiceType(String type) {
         selectHeaderButton.click();
         wait.until(ExpectedConditions.visibilityOf(selectHeaderButton));
@@ -86,12 +88,14 @@ public class PayFormBlock extends BasePage {
         return this;
     }
 
+    @Step("Заполнить форму: номер — {phone}, сумма — {sum}")
     public PayFormBlock fillForm(String phone, String sum) {
         connectionPhoneInput.sendKeys(phone);
         connectionSumInput.sendKeys(sum);
         return this;
     }
 
+    @Step("Получить placeholder номера телефона для типа: {serviceType}")
     public String getPhoneInputPlaceholder(String serviceType) {
         switch (serviceType) {
             case "connection":
@@ -107,6 +111,7 @@ public class PayFormBlock extends BasePage {
         }
     }
 
+    @Step("Получить placeholder суммы оплаты для типа: {serviceType}")
     public String getSumInputPlaceholder(String serviceType) {
         switch (serviceType) {
             case "connection":
@@ -122,6 +127,7 @@ public class PayFormBlock extends BasePage {
         }
     }
 
+    @Step("Получить placeholder e-mail для типа: {serviceType}")
     public String getEmailInputPlaceholder(String serviceType) {
         switch (serviceType) {
             case "internet":
@@ -135,6 +141,7 @@ public class PayFormBlock extends BasePage {
         }
     }
 
+    @Step("Отправить форму")
     public PaymentFrame submitForm() {
         buttonContinue.click();
         PaymentFrame frame = new PaymentFrame(driver);
